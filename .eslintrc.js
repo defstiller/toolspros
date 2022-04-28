@@ -31,6 +31,7 @@ module.exports = {
 		"semi": [
 			"warn",
 			"always"
-		]
+		],
+		"react/forbid-prop-types": 0
 	}
 };
