@@ -1,6 +1,15 @@
 /* -----
 SVG Icons - svgicons.sparkk.fr
 ----- */
+.svgButton {
+  width: 2.5em;
+	height: 2.5em;
+  background-color: transparent;
+  border: none;
+}
+.svgButton:hover {
+  cursor: pointer;
+}
 
 .svgIcon {
 	width: 2em;
