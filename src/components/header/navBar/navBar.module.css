@@ -5,10 +5,10 @@
 }
 .NavBar li {
 	border: none;
-	padding-right: 10px;
-	padding-left: 10px;
+	padding: 0 4vw;
 	background: linear-gradient(rgb(178, 168, 168),rgb(158, 158, 158)) right/2px 60%;
   	background-repeat: no-repeat;
+	font-size: 20px;
 }
 .NavBar li:last-child {
 	background: none;
