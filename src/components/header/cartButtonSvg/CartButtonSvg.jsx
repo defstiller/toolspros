@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./cartButtonSvg.module.css";
 const CartButtonSvg = (props) => (
-	<button >
+	<button className={classes.svgButton}>
 		<svg className={classes.svgIcon} viewBox="0 0 20 20" {...props}>
 			<path
 				fill="none"
