@@ -19,6 +19,6 @@
 	font-size: 1.5em;
 }
 
-h1, p {
+.Tagline h1, p {
 	filter: drop-shadow(-2px 1px 2px rgb(0, 0, 0));
 }
