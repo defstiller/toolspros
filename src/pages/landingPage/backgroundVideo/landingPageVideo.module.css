@@ -1,0 +1,6 @@
+.backgroundVid {
+	position: fixed;
+	object-fit: cover;
+	z-index: -1;
+	bottom: 0;
+}
