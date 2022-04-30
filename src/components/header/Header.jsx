@@ -1,6 +1,6 @@
 import React from "react";
 
-import LogoSvg from "./logoSvg/LogoSvg";
+import LogoSvg from "../../assets/svgsReactReady/logoSvg/LogoSvg";
 import CartButtonSvg from "./cartButtonSvg/CartButtonSvg";
 import NavBar from "./navBar/NavBar";
 
