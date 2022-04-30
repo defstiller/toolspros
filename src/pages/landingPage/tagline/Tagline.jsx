@@ -10,10 +10,7 @@ function Tagline() {
 				Tools for Pros by Pros
 			</h1>
 			<p>
-				Nam libero tempore, com soluta nobis est eligendi optio comque nihil impedit quo minus id quod maxime 
-				placeat facere possium, omnis voluptas assumenda est, omnis dolor
-				Nam libero tempore, com soluta nobis est eligendi optio comque nihil impedit quo minus id quod maxime 
-				placeat facere possium, omnis voluptas assumenda est, omnis dolor
+				Laboris ut in et est irure. Veniam ipsum dolor ullamco aliquip ea amet. Ad occaecat et mollit velit incididunt. Cupidatat dolore enim commodo duis reprehenderit aliqua adipisicing labore tempor voluptate velit aliqua. Duis veniam minim reprehenderit ut sit ut ad sint pariatur. Occaecat laboris anim nostrud laboris consequat anim cupidatat do aute laboris deserunt aute. Minim magna sunt minim Lorem proident adipisicing aliquip ex proident laborum Lorem velit nisi.			
 			</p>
 		</div>
 	);
