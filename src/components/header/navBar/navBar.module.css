@@ -1,14 +1,14 @@
 .NavBar {
 	list-style: none;
-	color: rgb(158, 158, 158);
 	display: flex;
 }
 .NavBar li {
 	border: none;
 	padding: 0 4vw;
-	background: linear-gradient(rgb(178, 168, 168),rgb(158, 158, 158)) right/2px 60%;
+	background: linear-gradient(rgb(0, 0, 0),rgb(66, 66, 66)) right/2px 60%;
   	background-repeat: no-repeat;
 	font-size: 20px;
+	font-weight: 300;
 }
 .NavBar li:last-child {
 	background: none;
