@@ -3,4 +3,6 @@ header {
 	grid-template: 1fr/ 1fr 10fr 1fr;
 	justify-items: center;
 	align-items: center;
+	background-color: rgba(5, 122, 255, 0.76);
+	color: black;
 }
