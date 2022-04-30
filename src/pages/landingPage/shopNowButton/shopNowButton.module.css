@@ -1,0 +1,19 @@
+.buttonDiv {
+	position: relative;
+	top: 32vh;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+.buttonDiv button {
+	background: none;
+	border: 2px solid #e6ff03;
+	color: #e6ff03;
+	font-size: 2em;
+	font-weight: bolder;
+	padding: 5px 20px;
+	filter: drop-shadow(-2px 1px 4px rgb(0, 0, 0));
+}
+.buttonDiv button:hover {
+	cursor: pointer;
+}
