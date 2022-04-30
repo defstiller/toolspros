@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "./normalize.min.css";
 import "./index.css";
 
-import LandingPage from "./pages/landingPage/LandingPage";
+import LandingPageLayout from "./layouts/landingPage/LandingPageLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +16,7 @@ root.render(
 				
 				<Route exact path="/" element={
 					<>
-						<LandingPage /> 
+						<LandingPageLayout /> 
 					</>
 					
 				} />
