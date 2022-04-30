@@ -1,6 +1,6 @@
 import React from "react";
 
-import backgroundVideo from "../../assets/videos/backgroundVideos/mechanic.webm";
+import backgroundVideo from "../../../assets/videos/backgroundVideos/mechanic.webm";
 import classes from "./backgroundVideo.module.css";
 
 function LandingPageVideo() {
