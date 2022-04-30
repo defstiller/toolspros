@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "../../components/header/Header";
-import LandingPageVideo from "../../pages/landingPage/backgroundVideo/LandingPageVideo";
+import BackgroundVideo from "../../components/backgroundVideo/BackgroundVideo";
 import Tagline from "../../pages/landingPage/tagline/Tagline";
 import ShopNowButton from "../../pages/landingPage/shopNowButton/ShopNowButton"
 
@@ -9,7 +9,7 @@ import ShopNowButton from "../../pages/landingPage/shopNowButton/ShopNowButton"
 function LandingPageLayout() {
 	return (<>
 		<Header />
-		<LandingPageVideo />
+		<BackgroundVideo />
 		<Tagline />
 		<ShopNowButton />
 	</>
