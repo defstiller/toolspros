@@ -8,7 +8,7 @@
 	text-align: center;
 	border: none;
 	padding: 0 4vw 2vh 4vw;
-	background: linear-gradient(rgb(184, 216, 5),rgb(133, 133, 133)) bottom /30% 2px;
+	background: linear-gradient(rgb(212, 253, 188),rgb(133, 133, 133)) bottom /30% 2px;
   	background-repeat: no-repeat;
 }
 .searchBarDiv form {
@@ -22,7 +22,7 @@
 	height: 5vh;
 	width: 60%;
 	margin-right: 10px;
-	border-color:rgb(219, 219, 219);
+	border-color:rgb(168, 255, 117);
 	outline: none;
 	/* Search icon  ( thanks for image to ---> Search icon by Icons8)*/ 
 	padding-left: 35px;
@@ -37,8 +37,9 @@
 
 .searchBarDiv form button {
 	width: 20%;
-	background-color: rgb(230, 255, 3);
-	border-color: rgb(221, 243, 28);
+	background-color: rgb(168, 255, 117);
+	border-color: rgb(160, 255, 105);
+	font-size: 1.4em;
 }
 .searchBarDiv form button:hover {
 	cursor: pointer;
