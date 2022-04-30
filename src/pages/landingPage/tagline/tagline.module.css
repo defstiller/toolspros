@@ -1,0 +1,24 @@
+.Tagline {
+	text-align: center;
+	position: relative;
+	top: 20vh;
+}
+.Tagline h1 {
+	color: #e6ff03;
+	font-size: 3.5em;
+}
+.Tagline p{
+	position: relative;
+	top: 7vh;
+	color: rgba(212, 216, 5, 0.91);
+	border: none;
+	padding: 0 4vw 2vh 4vw;
+	background: linear-gradient(rgb(184, 216, 5),rgb(133, 133, 133)) bottom /40% 2px;
+  	background-repeat: no-repeat;
+	font-weight: 600;
+	font-size: 1.5em;
+}
+
+h1, p {
+	filter: drop-shadow(-2px 1px 2px rgb(0, 0, 0));
+}
