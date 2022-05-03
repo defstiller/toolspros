@@ -6,6 +6,7 @@ function AdminPageLayout() {
 
 	return (<>
 		<AddProduct />
+		<GetProduct />
 	</>
 	);
 }
