@@ -9,9 +9,10 @@ function AddProduct() {
 		name: "",
 		description: "",
 		category: "", ////// CREATE CATEGORY LIST 
+		subCategory: "",
 		isFeatured: false,
 		price: "",
-		shipping: "",
+		shipping: "0",
 		imgUrl: ""
 	});
 	function handleAddSubmit(event) {
@@ -35,25 +36,28 @@ function AddProduct() {
 			{loading && <p>Loading...</p>}
 			<form onSubmit={handleAddSubmit}>
 				<label htmlFor="name">Name</label>
-				<input name="name" value={input.name} onChange={handleInputChange}/> 
+				<input name="name" value={input.name} onChange={handleInputChange} required/> 
 
 				<label htmlFor="description">Description</label>
-				<input name="description" value={input.description} onChange={handleInputChange}/>
+				<input name="description" value={input.description} onChange={handleInputChange} required/>
 
 				<label htmlFor="category">Category</label>
-				<input name="category" value={input.category} onChange={handleInputChange}/>
+				<input name="category" value={input.category} onChange={handleInputChange} required/>
+
+				<label htmlFor="category">sub-Category</label>
+				<input name="subCategory" value={input.subCategory} onChange={handleInputChange}/>
 
 				<label htmlFor="isFeatured">Is Featured?</label>
 				<input name="isFeatured" value={input.isFeatured} type="checkBox" onChange={handleInputChange}/>
 
 				<label htmlFor="price">Price</label>
-				<input name="price" value={input.price} onChange={handleInputChange}/>
+				<input name="price" value={input.price} onChange={handleInputChange} required/>
 
 				<label htmlFor="shipping">Shipping Price</label>
-				<input name="shipping" value={input.shipping} onChange={handleInputChange}/>
+				<input name="shipping" value={input.shipping} onChange={handleInputChange} required/>
 
 				<label htmlFor="imgUrl">Image URL</label>
-				<input name="imgUrl" value={input.imgUrl} onChange={handleInputChange}/>
+				<input name="imgUrl" value={input.imgUrl} onChange={handleInputChange} required/>
 
 				<button type="submit">Submit</button>
 			</form>
