@@ -8,7 +8,7 @@ import "./index.css";
 
 import LandingPageLayout from "./layouts/landingPage/LandingPageLayout";
 import ShopPageLayout from "./layouts/shopPage/shopPageLayout";
-
+import AdminPageLayout from "./layouts/adminPage/AdminPageLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +22,9 @@ root.render(
 
 				<Route exact path="/shop" element={
 					<ShopPageLayout />
+				} />
+				<Route exact path="/admin" element={
+					<AdminPageLayout />
 				} />
 			</Routes>
 		</Router>
