@@ -1,9 +1,9 @@
 import {useState} from "react";
 
 import {getDocs, collection, addDoc} from "firebase/firestore/lite";
-import db from "../firebeseConfig";
+import {db} from "../firebaseConfig";
 
-function useAddGetData() { // dbCollection is name of DB array of objects. --> ReactProject > collection > document > document object key / value pairs.
+function useAddGetData() {
 	const [loading, setLoading] = useState(false);
 	const [response, setResponse] = useState();
 	const [error, setError] = useState(false);
@@ -16,7 +16,7 @@ function useAddGetData() { // dbCollection is name of DB array of objects. --> R
  * 
  * If an error occurs, it sets the error state to the error message.
  * The `
- * @param dbCollection - The name of the collection you want to add data to.
+ * @param dbCollection - The name of the collection you want to add data to. --> ReactProjectDb > collection > document > document object key / value pairs.
  * @param dataToPost - The data to be posted to the database.
  */
 	async function addData(dbCollection, dataToPost) {
@@ -24,7 +24,7 @@ function useAddGetData() { // dbCollection is name of DB array of objects. --> R
 		try {
 			const dataToWrite = collection(db, dbCollection);
 			const fetchResponse = await addDoc(dataToWrite, dataToPost);
-			const responseMessage = "Product added with ID: " + fetchResponse.id;
+			const responseMessage = "Data added with ID: " + fetchResponse.id;
 			setResponse(responseMessage);
 		} catch (err) {
 			setError(err);
