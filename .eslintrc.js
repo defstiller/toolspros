@@ -32,6 +32,7 @@ module.exports = {
 			"warn",
 			"always"
 		],
+		"no-unused-vars": "warn",
 		"react/forbid-prop-types": 0
 	}
 };
