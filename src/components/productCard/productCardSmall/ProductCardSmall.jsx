@@ -1,22 +1,30 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import classes from "./productCardSmall.module.css";
+
 function ProductCardSmall(props) {
+	const navigate = useNavigate();
 	const {product} = props;
+
+	function handleProductClick() { //navigate user on click
+		const path = product.id;
+		navigate(path);
+	}
 	return(
-		<article>
-			<p>
-				{product.name}
-			</p>
-			<p>
-				{product.description}
-			</p>
-			<p>{product.isFeatured}</p>
-			<p>{product.price}</p>
-			<p>{product.shipping}</p>
-			<p>{product.style}</p>
-			<img src={product.imgUrl} />
-			<p>{product.category}</p>
+		<article className={classes.cardArticle}>
+			<p>{product.name}</p>
+
+			<p>Price: ${product.price}</p>
+
+			{product.shipping > 0 
+			&& <p>Shipping: {product.shipping}</p>}
+
+			<div onClick={handleProductClick}>
+				<img src={product.imgUrl} />
+			</div>
+			<button>Add to cart</button>
 
 		</article>
 
