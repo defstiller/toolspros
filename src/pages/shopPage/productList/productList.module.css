@@ -1,0 +1,9 @@
+.productDiv {
+	width: 100%;
+}
+
+.productMain {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
