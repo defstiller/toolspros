@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 import classes from "./navBar.module.css";
 
@@ -7,19 +8,27 @@ function NavBar() {
 		<nav>
 			<ul className={classes.NavBar}>
 				<li>
-					Featured
+					<NavLink to="/">
+						Featured
+					</NavLink>
 				</li>
 
 				<li>
-					About
+					<NavLink to="/about">
+						About
+					</NavLink>
 				</li>
 
 				<li>
-					Reviews
+					<NavLink to="/reviews">
+						Reviews
+					</NavLink>
 				</li>
 				
 				<li>
-					Contact
+					<NavLink to="/contact">
+						Contact
+					</NavLink>
 				</li>
 			</ul>
 		</nav>
