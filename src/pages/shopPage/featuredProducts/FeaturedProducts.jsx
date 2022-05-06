@@ -1,31 +1,63 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+import Carousel from "nuka-carousel";
+import PropTypes from "prop-types";
 
-import ProductCardLarge from "../../../components/productCard/productCardLarge/ProductCardLarge";
+import classes from "./featuredProducts.module.css";
 
-function FeaturedProducts() {
-	const products = [
-		{
-			name: "productSpecial1"
-		},
-		{
-			name: "productSpecial2"
-		},
-		{
-			name: "productSpecial3"
-		},
-		{
-			name: "productSpecial4"
+function FeaturedProducts({data}) {
+	const {receivedData, loading, error} = data;
+	const [featuredProducts, setFeaturedProducts] = useState([]);
+
+	/* Filtering the data to only show the featured products. */
+	useEffect(() =>{
+		if(!loading) {
+			const featuredArray = [];
+			receivedData.map(product => {
+				if(product.isFeatured) {
+					featuredArray.push(product);
+					return;
+				}
+				return;
+			});
+			setFeaturedProducts(featuredArray);
 		}
-	];
+		return ;
+	}, [receivedData]);
+
 	return (
 		<section>
-			<div>
+			<div className={classes.featuredTextDiv}>
 				<h3>Featured Products</h3>
 				<p>Aute cillum labore ipsum laboris velit irure sunt velit aliqua.</p>
 			</div>
-			<ProductCardLarge products={products}/>
+
+			<Carousel 
+				className={classes.carousel}
+				wrapAround={true}
+				slidesToShow={3}
+				animation="zoom"
+				autoplay={true}
+				cellAlign="center"
+				zoomScale={0.95}
+				
+			>
+				{featuredProducts && featuredProducts.map(product => {
+					return (
+						<Link to={product.id} key={product.id}>
+							<figure className={classes.figure}>
+								<img src={product.imgUrl} />
+								<figcaption>{product.name}</figcaption>
+							</figure>
+						</Link>);
+				})}
+			</Carousel>
+
 		</section>
 	);
 }
+FeaturedProducts.propTypes = {
+	data: PropTypes.any
+};
 
 export default FeaturedProducts;
