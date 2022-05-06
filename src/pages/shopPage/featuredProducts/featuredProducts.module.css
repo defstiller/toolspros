@@ -1,0 +1,25 @@
+.carousel div{
+	height: 35vh;
+}
+.featuredTextDiv {
+	text-align: center;
+}
+.featuredTextDiv h3 {
+	font-size: 2em;
+	color: rgb(168, 255, 117);
+}
+
+.figure{
+	height:70%;
+	text-align:center;
+
+}
+.figure img {
+	height:100%;
+	width:100%;
+	object-fit: contain;
+}
+.figure figcaption{
+	text-decoration: none !important;
+	border-bottom: none;
+}
