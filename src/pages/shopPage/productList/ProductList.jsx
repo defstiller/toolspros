@@ -1,17 +1,12 @@
-import React, {useEffect} from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 import ProductCardSmall from "../../../components/productCard/productCardSmall/ProductCardSmall";
-import useAddGetData from "../../../logic/firebaseLogic/firebaseDB/useAddGetData";
 
 import classes from "./productList.module.css";
 
-function ProductList() {
-	const {loading, error, receivedData, getData} = useAddGetData();
-
-	useEffect(() => {
-		getData("products");
-	}, []);
-
+function ProductList({data}) {
+	const {receivedData, loading, error} = data;
 	return(
 		<div className={classes.productDiv}>
 			{loading && <p>Loading...</p>}
@@ -23,5 +18,7 @@ function ProductList() {
 		</div>
 	);
 }
-
+ProductList.propTypes = {
+	data: PropTypes.any
+};
 export default ProductList;
