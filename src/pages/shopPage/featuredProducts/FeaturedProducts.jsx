@@ -1,12 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {Link} from "react-router-dom";
 import Carousel from "nuka-carousel";
 import PropTypes from "prop-types";
 
 import classes from "./featuredProducts.module.css";
+import {ProductDataContext} from "../../../context/context";
 
 function FeaturedProducts({data}) {
-	const {receivedData, loading, error} = data;
+	const {receivedData, loading, error} = useContext(ProductDataContext);
 	const [featuredProducts, setFeaturedProducts] = useState([]);
 
 	/* Filtering the data to only show the featured products. */
