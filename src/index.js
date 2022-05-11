@@ -6,11 +6,13 @@ import "./normalize.min.css";
 import "./index.css";
 
 import App from "./App";
-
+import { CartProvider } from "react-use-cart";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-	<App />
+	<CartProvider>
+		<App />
+	</CartProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
