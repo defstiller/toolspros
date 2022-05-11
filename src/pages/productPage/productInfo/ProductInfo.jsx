@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 
 import useAddGetData from "../../../logic/firebaseLogic/firebaseDB/useAddGetData";
 
-import Header from "../../../components/header/Header";
+import HeaderLayout from "../../../components/header/HeaderLayout";
 
 function ProductInfo() {
 	const params = useParams();
@@ -22,7 +22,7 @@ function ProductInfo() {
 	},[receivedData]);
 	return (
 		<>
-			<Header />
+			<HeaderLayout />
 			<main>
 				{product && <>
 					<figure>

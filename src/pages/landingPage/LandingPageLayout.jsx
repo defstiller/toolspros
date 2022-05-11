@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "../../components/header/Header";
+import HeaderLayout from "../../components/header/HeaderLayout";
 import BackgroundVideo from "./backgroundVideo/BackgroundVideo";
 import Tagline from "./tagline/Tagline";
 import ShopNowButton from "./shopNowButton/ShopNowButton";
@@ -8,7 +8,7 @@ import ShopNowButton from "./shopNowButton/ShopNowButton";
 
 function LandingPageLayout() {
 	return (<>
-		<Header />
+		<HeaderLayout />
 		<BackgroundVideo />
 		<Tagline />
 		<ShopNowButton />
