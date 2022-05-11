@@ -27,7 +27,7 @@ function FeaturedProducts({data}) {
 	}, [receivedData]);
 
 	return (
-		<section>
+		<section className={classes.section}>
 			<div className={classes.featuredTextDiv}>
 				<h3>Featured Products</h3>
 				<p>Aute cillum labore ipsum laboris velit irure sunt velit aliqua.</p>
