@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import PropTypes from "prop-types";
+import { useCart } from "react-use-cart";
+import { useNavigate } from "react-router-dom";
 
 import ProductCardSmall from "../../../../components/productCard/productCardSmall/ProductCardSmall";
 
@@ -9,15 +11,18 @@ function ProductList(props) {
 	const {filteredData} = props;
 	const [currentPage, setCurrentPage] = useState(1);
 	const [currentProducts, setCurrentProducts] = useState([]);
+	const navigate = useNavigate();
 
 	const nextButton = useRef();
 	const previousButton = useRef();
 
-	function handleNextPage() {
-		setCurrentPage(currentPage + 1);
-	}
-	function handlePreviousPage() {
-		setCurrentPage(currentPage - 1);
+	function handlePageChangeClick(event) {
+		const target = event.target;
+		if(target === nextButton.current) {
+			setCurrentPage(currentPage + 1);
+		} else {
+			setCurrentPage(currentPage - 1);
+		}
 	}
 
 	function productPagination() {
@@ -44,15 +49,40 @@ function ProductList(props) {
 		setCurrentPage(1);
 	}, [filteredData]);
 
+	// Handle cart
+	const {updateItemQuantity } = useCart();
+	function handleQuantityChange(increase, product) {
+		const currentQuantity = product.quantity;
+		let newQuantity = null;
+		if(increase) {
+			newQuantity = currentQuantity + 1;
+		} else {
+			newQuantity = currentQuantity - 1;
+		}
+		updateItemQuantity(product.id, newQuantity);
+	}
+	function handleProductClick(product) { //navigate user on click
+		const path = product.id;
+		navigate(path);
+	}
+	// Handle cart end
 	return(
 		<div className={classes.productDiv}>
 			<main className={classes.productMain}>
-				{currentProducts && currentProducts.map(product => {
-					return <ProductCardSmall key={product.name} product={product}/>;
-				})}
+				<ul>
+					{currentProducts && currentProducts.map(product => {
+						return (
+							<li key={product.id}>
+								<ProductCardSmall product={product} handleProductClick={handleProductClick} handleQuantityChange={handleQuantityChange}/>;
+							</li>);
+					})}
+
+				</ul>
 			</main>
-			<button onClick={handlePreviousPage} ref={previousButton}>Previous</button>
-			<button onClick={handleNextPage} ref={nextButton}>Next</button>
+			<div className={classes.pageChangeBtns}>
+				<button onClick={handlePageChangeClick} ref={previousButton}>Previous</button>
+				<button onClick={handlePageChangeClick} ref={nextButton}>Next</button>
+			</div>
 		</div>
 	);
 }
