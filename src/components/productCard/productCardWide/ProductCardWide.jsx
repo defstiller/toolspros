@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function ProductCardLarge(props) {
+import handleQuantityChange from "../../../logic/products/handleQuantityChange";
+
+function ProductCardWide(props) {
 	const {products} = props;
 	return (
 		<div>
@@ -13,8 +15,8 @@ function ProductCardLarge(props) {
 	);
 }
 
-ProductCardLarge.propTypes = {
+ProductCardWide.propTypes = {
 	products: PropTypes.array
 };
 
-export default ProductCardLarge;
+export default ProductCardWide;
