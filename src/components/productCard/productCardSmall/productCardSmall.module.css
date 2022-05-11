@@ -9,13 +9,13 @@
 	background-color: rgba(168, 255, 117, 0.05)
 }
 
-.cardArticle div {
+.imgDiv {
 	height: 50%;
 	width: 100%;
 	margin: 10% 0;
 }
 
-.cardArticle img {
+.imgDiv img {
 	height: 20vh;
 	width: 20vw;
 	object-fit: contain;
@@ -24,4 +24,15 @@
 
 .cardArticle img:hover {
 	cursor: pointer;
+}
+.changeAmountBtns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.changeAmountBtns > p {
+	margin: 0 1vw;
+}
+.changeAmountBtns > button {
+	margin: 0.2vw 0;
 }
