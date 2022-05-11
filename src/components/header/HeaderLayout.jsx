@@ -15,7 +15,9 @@ function HeaderLayout() {
 				<LogoSvg />
 			</Link>
 			<NavBar />
-			<CartButtonSvg />
+			<Link to="/cart">
+				<CartButtonSvg />
+			</Link>
 		</header>
 	);
 }
