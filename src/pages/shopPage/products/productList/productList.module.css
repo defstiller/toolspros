@@ -1,5 +1,18 @@
 .productMain {
+	margin-top: 3vh;
+}
+
+.productMain ul {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	list-style-type: none;
+}
+.pageChangeBtns {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.pageChangeBtns button {
+	top: 10vh;
 }
