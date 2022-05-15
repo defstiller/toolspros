@@ -5,9 +5,11 @@ import { useCart } from "react-use-cart";
 
 import classes from "./productCardSmall.module.css";
 
+import handleQuantityChange from "../../../logic/product/handleQuantityChange";
+
 function ProductCardSmall(props) {
-	const {product, handleQuantityChange, handleProductClick} = props;
-	const { addItem, inCart, getItem } = useCart();
+	const {product, handleProductClick} = props;
+	const { addItem, inCart, getItem, updateItemQuantity } = useCart();
 
 	const productInCart = getItem(product.id);
 	return(
@@ -25,9 +27,9 @@ function ProductCardSmall(props) {
 			{
 				inCart(product.id) ?<>
 					<div className={classes.changeAmountBtns}>
-						<button onClick={() => handleQuantityChange(true, productInCart)}>+</button>
+						<button onClick={() => handleQuantityChange(false, productInCart, updateItemQuantity)}>-</button>
 						<p>{productInCart.quantity}</p>
-						<button onClick={() => handleQuantityChange(false, productInCart)}>-</button>
+						<button onClick={() => handleQuantityChange(true, productInCart, updateItemQuantity)}>+</button>
 					</div>
 					<Link to="/cart">
 						<button>Go to cart</button>
