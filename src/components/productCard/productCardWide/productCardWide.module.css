@@ -1,0 +1,21 @@
+.cardArticle {
+	display: flex;
+}
+.changeAmountBtns {
+	display: flex;
+	align-items: center;
+}
+.changeAmountBtns div {
+	display: flex;
+	margin-left: 10px;
+	align-items: center;
+	border: 1px solid
+}
+.changeAmountBtns button, .changeAmountBtns p {
+	height: 100%;
+	margin: 5px;
+}
+.productImg {
+	width: 15vw;
+	height: 15vh;
+}
