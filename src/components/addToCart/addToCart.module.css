@@ -1,0 +1,39 @@
+.changeAmountBtns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.changeAmountBtns > p {
+	margin: 0 1vw;
+}
+.changeAmountBtns > button {
+	margin: 0.5vh 0;
+	width: 3vw;
+	height: 1.5rem;
+}
+.link {
+	width: 100%;
+}
+.link > a {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	text-decoration: none;
+}
+.cartBtn {
+	width: 60%;
+	height: 2rem;
+}
+.addToCartDiv {
+	display: flex;
+	justify-content: center;
+	margin-top: 2.2rem;
+}
+.addToCartDiv > button {
+	height: 2rem;
+}
+.addToCartDiv > button:hover,
+.changeAmountBtns > button:hover,
+.cartBtn {
+	cursor: pointer;
+}
