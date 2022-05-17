@@ -25,14 +25,3 @@
 .cardArticle img:hover {
 	cursor: pointer;
 }
-.changeAmountBtns {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.changeAmountBtns > p {
-	margin: 0 1vw;
-}
-.changeAmountBtns > button {
-	margin: 0.2vw 0;
-}
