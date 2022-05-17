@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { useCart } from "react-use-cart";
 import { useNavigate } from "react-router-dom";
 
-import ProductCardSmall from "../../../../components/productCard/productCardSmall/ProductCardSmall";
+import ProductCard from "../../../../components/productCard/productCardSmall/ProductCard";
 
-import classes from "./productList.module.css";
+import styles from "./productList.module.css";
 
 function ProductList(props) {
 	const {filteredData} = props;
@@ -55,19 +55,23 @@ function ProductList(props) {
 	}
 
 	return(
-		<div className={classes.productDiv}>
-			<main className={classes.productMain}>
+		<div className={styles.productDiv}>
+			<main className={styles.productMain}>
 				<ul>
 					{currentProducts && currentProducts.map(product => {
 						return (
 							<li key={product.id}>
-								<ProductCardSmall product={product} handleProductClick={handleProductClick} />
+								<ProductCard 
+									product={product} 
+									handleProductClick={handleProductClick} 
+									styles={styles}
+								/>
 							</li>);
 					})}
 
 				</ul>
 			</main>
-			<div className={classes.pageChangeBtns}>
+			<div className={styles.pageChangeBtns}>
 				<button onClick={handlePageChangeClick} ref={previousButton}>Previous</button>
 				<button onClick={handlePageChangeClick} ref={nextButton}>Next</button>
 			</div>
