@@ -49,23 +49,11 @@ function ProductList(props) {
 		setCurrentPage(1);
 	}, [filteredData]);
 
-	// Handle cart
-	const {updateItemQuantity } = useCart();
-	function handleQuantityChange(increase, product) {
-		const currentQuantity = product.quantity;
-		let newQuantity = null;
-		if(increase) {
-			newQuantity = currentQuantity + 1;
-		} else {
-			newQuantity = currentQuantity - 1;
-		}
-		updateItemQuantity(product.id, newQuantity);
-	}
 	function handleProductClick(product) { //navigate user on click
 		const path = product.id;
 		navigate(path);
 	}
-	// Handle cart end
+
 	return(
 		<div className={classes.productDiv}>
 			<main className={classes.productMain}>
@@ -73,7 +61,7 @@ function ProductList(props) {
 					{currentProducts && currentProducts.map(product => {
 						return (
 							<li key={product.id}>
-								<ProductCardSmall product={product} handleProductClick={handleProductClick} handleQuantityChange={handleQuantityChange}/>;
+								<ProductCardSmall product={product} handleProductClick={handleProductClick} />
 							</li>);
 					})}
 
