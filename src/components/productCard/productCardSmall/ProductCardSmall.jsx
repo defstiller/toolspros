@@ -5,7 +5,7 @@ import { useCart } from "react-use-cart";
 
 import classes from "./productCardSmall.module.css";
 
-import handleQuantityChange from "../../../logic/product/handleQuantityChange";
+import AddToCart from "../../addToCart/AddToCart";
 
 function ProductCardSmall(props) {
 	const {product, handleProductClick} = props;
@@ -24,22 +24,7 @@ function ProductCardSmall(props) {
 			<div onClick={() => handleProductClick(product)} className={classes.imgDiv}>
 				<img src={product.imgUrl} />
 			</div>
-			{
-				inCart(product.id) ?<>
-					<div className={classes.changeAmountBtns}>
-						<button onClick={() => handleQuantityChange(false, productInCart, updateItemQuantity)}>-</button>
-						<p>{productInCart.quantity}</p>
-						<button onClick={() => handleQuantityChange(true, productInCart, updateItemQuantity)}>+</button>
-					</div>
-					<Link to="/cart">
-						<button>Go to cart</button>
-					</Link>
-				</>
-					: 
-					<button onClick={() => addItem(product, 1)}>Add to cart</button>
-			}
-					
-
+			<AddToCart product={product} />
 		</article>
 
 	);
