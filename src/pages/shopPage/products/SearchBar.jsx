@@ -18,10 +18,10 @@ function SearchBar() {
 	
 	/* Filtering the data based on the input. receivedData dependancy is used to update on first render */
 	useMemo(() => {
-		if(input) {
+		if(defferedInput) {
 			let filteredArray = [];
 			receivedData.map( data => {
-				const lowerInput = input.toLowerCase();
+				const lowerInput = defferedInput.toLowerCase();
 				const name = data.name.toLowerCase();
 				if(name.includes(lowerInput)){
 					filteredArray.push(data);
