@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import classes from "./logoSvg.module.css"
+import classes from "./logoSvg.module.css";
 
 const logoSvg = (props) => (
 	<svg className={classes.svgIcon} viewBox="0 0 20 20" {...props}>
