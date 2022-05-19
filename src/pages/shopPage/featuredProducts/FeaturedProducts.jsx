@@ -5,11 +5,24 @@ import PropTypes from "prop-types";
 
 import classes from "./featuredProducts.module.css";
 import {ProductDataContext} from "../../../context/context";
+import debounce from "../../../logic/functions/debounceFunction";
 
 function FeaturedProducts({data}) {
 	const {receivedData, loading, error} = useContext(ProductDataContext);
 	const [featuredProducts, setFeaturedProducts] = useState([]);
-
+	const [slides, setSlides] = useState(3);
+	useEffect(() => {
+		window.addEventListener("resize", debounce(() => handlePageResizeCarousel(window.innerWidth),
+			200, false), false);
+	}, []);
+	function handlePageResizeCarousel(innerWidth) {
+		if(innerWidth < 800) {
+			setSlides(1)
+		} else if(innerWidth > 800) {
+			setSlides(3)
+		}
+		return;
+	}
 	/* Filtering the data to only show the featured products. */
 	useEffect(() =>{
 		if(!loading) {
@@ -25,7 +38,6 @@ function FeaturedProducts({data}) {
 		}
 		return ;
 	}, [receivedData]);
-
 	return (
 		<section className={classes.section}>
 			<div className={classes.featuredTextDiv}>
@@ -36,7 +48,7 @@ function FeaturedProducts({data}) {
 			<Carousel 
 				className={classes.carousel}
 				wrapAround={true}
-				slidesToShow={3}
+				slidesToShow={slides}
 				animation="zoom"
 				autoplay={true}
 				cellAlign="center"
@@ -45,7 +57,10 @@ function FeaturedProducts({data}) {
 			>
 				{featuredProducts && featuredProducts.map(product => {
 					return (
-						<Link to={product.id} key={product.id}>
+						<Link 
+							to={product.id} 
+							key={product.id}
+						>
 							<figure className={classes.figure}>
 								<img src={product.imgUrl} />
 								<figcaption>{product.name}</figcaption>
