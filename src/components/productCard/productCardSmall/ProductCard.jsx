@@ -30,21 +30,19 @@ function ProductCard(props) {
 	// );
 	return(
 		<article className={styles.cardArticle}>
-			<img src={product.imgUrl}  onClick={() => handleProductClick(product)} className={styles.productImg}/>
+			<figure>
+				<img src={product.imgUrl}  onClick={() => handleProductClick(product)} className={styles.productImg}/>
+			</figure>
 			<div className={styles.infoDiv}>
 				<p>{product.name}</p>
-				<p>{product.description}</p>
 				<p>Price: ${product.price}</p>
 				<p>
 					Shipping: {product.shipping > 0 
 						? "$"+product.shipping 
 						: "FREE"}
 				</p>
+				<AddToCart product={product} styles={styles}/>
 			</div>
-			<AddToCart product={product} />
-
-					
-
 		</article>
 
 	);
