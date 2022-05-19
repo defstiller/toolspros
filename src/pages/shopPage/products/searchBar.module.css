@@ -19,8 +19,9 @@
 }
 .searchBarDiv form input {
 	height: 5vh;
-	width: 60%;
-	margin-right: 10px;
+	width: 90%;
+	font-size: 1.7rem;
+	margin: 0 5%;
 	border-color:rgb(168, 255, 117);
 	outline: none;
 	/* Search icon  ( thanks for image to ---> Search icon by Icons8)*/ 
@@ -35,4 +36,16 @@
 }
 .productDiv {
 	width: 100%;
+}
+@media screen and (min-width: 425px) {
+	.searchBarDiv form input {
+		width: 80%;
+	}
+}
+@media screen and (min-width: 700px) {
+	.searchBarDiv form input {
+		width: 70%;
+		font-size: 1.5rem;
+
+	}
 }
