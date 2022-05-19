@@ -5,29 +5,27 @@ import PropTypes from "prop-types";
 
 import handleQuantityChange from "../../logic/product/handleQuantityChange";
 
-import classes from "./addToCart.module.css";
-
 function AddToCart(props) {
-	const {product} = props;
+	const {product, styles} = props;
 	const { addItem, inCart, getItem, updateItemQuantity } = useCart();
 	const productInCart = getItem(product.id);
 	return (
 		<div>{
 			inCart(product.id) 
 				? <>
-					<div className={classes.changeAmountBtns}>
+					<div className={styles.changeAmountBtns}>
 						<button onClick={() => handleQuantityChange(false, productInCart, updateItemQuantity)}>-</button>
 						<p>{productInCart.quantity}</p>
 						<button onClick={() => handleQuantityChange(true, productInCart, updateItemQuantity)}>+</button>
 					</div>
-					<div className={classes.link}>
+					<div className={styles.link}>
 						<Link to="/cart">
-							<button className={classes.cartBtn}>Go to cart</button>
+							<button className={styles.cartBtn}>Go to cart</button>
 						</Link>
 					</div>
 				</>
 				: 
-				<div className={classes.addToCartDiv}>
+				<div className={styles.addToCartDiv}>
 					<button onClick={() => addItem(product, 1)}>
 						Add to cart
 					</button>
@@ -37,6 +35,7 @@ function AddToCart(props) {
 }
 AddToCart.propTypes = {
 	product: PropTypes.any,
+	styles: PropTypes.any
 };
 
 export default AddToCart;
