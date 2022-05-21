@@ -28,6 +28,7 @@ function useAddGetData() {
 			setResponse(responseMessage);
 		} catch (err) {
 			setError(err);
+			console.log(err);
 		} finally {
 			setLoading(false);
 		}
@@ -37,7 +38,15 @@ function useAddGetData() {
 			setLoading(true);
 			const response = collection(db, dbCollection);
 			const data = await getDocs(response);
-			const dataSeparated = data.docs.map(doc => doc.data());
+			const dataSeparated = data.docs.map(doc => {
+				const data = doc.data();
+				const docId = doc.id;
+				const combinedData = {
+					...data,
+					docId
+				};
+				return combinedData;
+			});
 			setReceivedData(dataSeparated);
 		} catch (err) {
 			setError(err);
