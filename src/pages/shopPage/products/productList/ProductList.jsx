@@ -60,7 +60,7 @@ function ProductList(props) {
 				<ul>
 					{currentProducts && currentProducts.map(product => {
 						return (
-							<li key={product.id}>
+							<li key={product.id} className={styles.listItem}>
 								<ProductCard 
 									product={product} 
 									handleProductClick={handleProductClick} 
