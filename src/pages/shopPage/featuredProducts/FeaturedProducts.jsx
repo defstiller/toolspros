@@ -4,25 +4,23 @@ import Carousel from "nuka-carousel";
 import PropTypes from "prop-types";
 
 import classes from "./featuredProducts.module.css";
-import {ProductDataContext} from "../../../context/context";
+import {ProductDataContext, ScreenResizeContext} from "../../../context/context";
 import debounce from "../../../logic/functions/debounceFunction";
 
 function FeaturedProducts({data}) {
 	const {receivedData, loading, error} = useContext(ProductDataContext);
+	const {width} = useContext(ScreenResizeContext);
 	const [featuredProducts, setFeaturedProducts] = useState([]);
 	const [slides, setSlides] = useState(3);
 	useEffect(() => {
-		window.addEventListener("resize", debounce(() => handlePageResizeCarousel(window.innerWidth),
-			200, false), false);
-	}, []);
-	function handlePageResizeCarousel(innerWidth) {
-		if(innerWidth < 800) {
-			setSlides(1)
-		} else if(innerWidth > 800) {
-			setSlides(3)
+		if(width < 800) {
+			setSlides(1);
+		} else if(width > 800) {
+			setSlides(3);
 		}
 		return;
-	}
+
+	}, [width]);
 	/* Filtering the data to only show the featured products. */
 	useEffect(() =>{
 		if(!loading) {
