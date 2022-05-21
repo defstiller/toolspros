@@ -1,14 +1,20 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import useAddGetData from "../../../logic/firebaseLogic/firebaseDB/useAddGetData";
-
 import HeaderLayout from "../../../components/header/HeaderLayout";
+import ProductReviews from "./productReviews/ProductReviews";
+import AddToCart from "../../../components/addToCart/AddToCart";
+
+import styles from "./productInfo.module.css";
+import StarRating from "../../../components/productCard/starRating/StarRating";
 
 function ProductInfo() {
 	const params = useParams();
-	const {loading, error, receivedData, getData} = useAddGetData();
+	const {loading, error, response, receivedData, addData, getData} = useAddGetData();
 	const [product, setProduct] = useState();
+	const [averageRating, setAverageRating] = useState(0);
 	useEffect(() => {
 		getData("products");
 	}, []);
@@ -23,27 +29,23 @@ function ProductInfo() {
 	return (
 		<>
 			<HeaderLayout />
-			<main>
-				{product && <>
+			{product && <>
+				<main className={styles.main}>
 					<figure>
 						<img src={product.imgUrl} />
 					</figure>
-					<h1>{product.name}</h1>
-					<p>REVIEWS</p>
 					<div>
-						<p>${product.price}</p>
-						<p>MODEL SELECT</p>
+						<h1>{product.name}</h1>
+						<StarRating width="1em" rating={averageRating}/>
+						<p className={styles.price}>${product.price}</p>
+						<p className={styles.description}>{product.description}</p>
+						<AddToCart product={product} styles={styles}/>
 					</div>
-					<p>{product.description}</p>
-					<button>Add To Cart</button>
-				</>}
-			</main>
-
-			<aside>
-				<article>
-					<p>REVIEW</p>
-				</article>
-			</aside>
+				</main>
+				<section>
+					<ProductReviews productDocId={product.docId} setAverageRating={setAverageRating} />
+				</section>
+			</>}
 		</>
 	);
 }
