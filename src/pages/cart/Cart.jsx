@@ -7,7 +7,7 @@ import ProductCardWide from "../../components/productCard/productCardWide/Produc
 
 import {AuthContext} from "../../context/context";
 
-import classes from "./cart.module.css";
+import styles from "./cart.module.css";
 
 function Cart() {
 	const {isUser} = useContext(AuthContext); 
@@ -64,8 +64,8 @@ function Cart() {
 	</>;
 	return <>
 		<HeaderLayout />
-		<div className={classes.cartMainDiv}>
-			<main className={classes.main}>
+		<div className={styles.cartMainDiv}>
+			<main className={styles.main}>
 				<h1>Shopping Cart ({totalUniqueItems})</h1>
 				<ul>
 					{items.map( product => (
@@ -80,7 +80,7 @@ function Cart() {
 					))}
 				</ul>
 			</main>
-			<div className={classes.summaryDiv}>
+			<div className={styles.summaryDiv}>
 				<h1>Summary</h1>
 				<div>
 					<p>Subtotal</p>
@@ -92,13 +92,15 @@ function Cart() {
 						? "$" + summary.shipping 
 						: "FREE"}</p>
 				</div>
-				<div className={classes.totalDiv}>
+				<div className={styles.totalDiv}>
 					<p>Total</p>
 					<p>${summary.total}</p>
 				</div>
+				<Link to="/checkout">
+					<button className={styles.toCheckout}>Proceed To Checkout</button>
+				</Link>
 			</div>
 		</div>
-		<button>Proceed To Checkout</button>
 	</>;
 }
 
