@@ -1,0 +1,13 @@
+.list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+.totalDiv {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+.totalDiv section {
+	width: 50%;
+}
