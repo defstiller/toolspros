@@ -1,27 +1,23 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import PropTypes from "prop-types";
 
 import classes from "./navBar.module.css";
 
-function NavBar() {
+function NavBar(props) {
+	const {styles} = props;
 	return(
 		<nav>
-			<ul className={classes.NavBar}>
+			<ul className={styles.NavBar}>
 				<li>
-					<NavLink to="/">
-						Featured
+					<NavLink to="/shop">
+						Shop
 					</NavLink>
 				</li>
 
 				<li>
 					<NavLink to="/about">
 						About
-					</NavLink>
-				</li>
-
-				<li>
-					<NavLink to="/reviews">
-						Reviews
 					</NavLink>
 				</li>
 				
@@ -34,5 +30,7 @@ function NavBar() {
 		</nav>
 	);
 }
-
+NavBar.propTypes = {
+	styles: PropTypes.any
+};
 export default NavBar;
