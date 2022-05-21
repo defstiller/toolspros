@@ -29,3 +29,6 @@
 .totalDiv > p:last-child {
 	font-weight: 700;
 }
+.toCheckout {
+	width: 100%;
+}
