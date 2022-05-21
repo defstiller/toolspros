@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 
 import useAddGetData from "../../../logic/firebaseLogic/firebaseDB/useAddGetData";
 
-import ProductCardSmall from "../../../components/productCard/productCardSmall/ProductCardSmall";
+import ProductCard from "../../../components/productCard/productCardSmall/ProductCard";
 
 function GetProduct() {
 	const {loading, error, receivedData, getData} = useAddGetData();
@@ -15,7 +15,7 @@ function GetProduct() {
 		<div>
 			{error && <p>error</p>}
 			{loading || receivedData.map(product => {
-				return <ProductCardSmall product={product} key={product.name}/>;
+				return <ProductCard product={product} key={product.name}/>;
 			})}
 			{loading && <p>Loading...</p>}
 		</div>
