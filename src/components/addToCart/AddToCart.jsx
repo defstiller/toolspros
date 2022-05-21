@@ -10,9 +10,9 @@ function AddToCart(props) {
 	const { addItem, inCart, getItem, updateItemQuantity } = useCart();
 	const productInCart = getItem(product.id);
 	return (
-		<div>{
+		<div className={styles.cartDiv}>{
 			inCart(product.id) 
-				? <>
+				? <menu>
 					<div className={styles.changeAmountBtns}>
 						<button onClick={() => handleQuantityChange(false, productInCart, updateItemQuantity)}>-</button>
 						<p>{productInCart.quantity}</p>
@@ -23,13 +23,13 @@ function AddToCart(props) {
 							<button className={styles.cartBtn}>Go to cart</button>
 						</Link>
 					</div>
-				</>
+				</menu>
 				: 
-				<div className={styles.addToCartDiv}>
+				<menu className={styles.addToCartMenu}>
 					<button onClick={() => addItem(product, 1)}>
 						Add to cart
 					</button>
-				</div>
+				</menu>
 		}</div>
 	);
 }
