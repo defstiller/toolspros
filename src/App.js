@@ -39,7 +39,7 @@ function App() {
 		});
 	}, []);
 	return (
-		<AuthContext.Provider value={{isUser, setIsUser}}>
+		<AuthContext.Provider value={{isUser, setIsUser, auth}}>
 			<ScreenResizeContext.Provider value={{width}}>
 				<Router>
 					<Routes>
