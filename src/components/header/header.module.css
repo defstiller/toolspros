@@ -1,10 +1,33 @@
-header {
+.headerDiv {
+	/* Position settings */
+	position: sticky;
+	top: 0;
+	align-self: start;
+	z-index: 10;
+}
+.header {
 	display: grid;
 	grid-template: 1fr/ 1fr 85% 1fr 1fr;
 	justify-items: center;
 	align-items: center;
 	background-color: rgba(168, 255, 117, 0.76);
 	color: black;
+}
+.dropDown{
+	position: absolute;
+	width: 10vw;
+	right: 0;
+	text-align: center;
+	background-color: rgba(168, 255, 117, 0.76);;
+}
+.dropDown button {
+	background-color: transparent;
+	border: none;
+	width: 100%;
+	padding: 1vh 0;
+}
+.dropDown button:hover {
+	cursor: pointer;
 }
 .NavBar {
 	list-style: none;
@@ -30,7 +53,7 @@ header {
 }
 .svgButton {
 	width: 2.5em;
-	  height: 2.5em;
+	height: 2.5em;
 	background-color: transparent;
 	border: none;
 	transition: transform .2s;
