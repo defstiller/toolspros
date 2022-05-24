@@ -1,22 +1,24 @@
 import React, { useEffect} from "react";
 import PropTypes from "prop-types";
 function Modal(props) {
-	const {isModal, setIsModal} = props;
+	const {isModal, setIsModal, styles} = props;
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			setIsModal({
+			setIsModal({ // use as template for parent
 				isOpen: false,
 				content: "",
-				delay: 5000
+				delay: 0
 			});
 		}, isModal.delay);
-		return () => clearTimeout(timer)
+		return () => clearTimeout(timer);
 	}, [isModal]);
 
 	if(isModal.isOpen) {
 		return (
-			<main>
-				{isModal.content}
+			<main className={styles.modal}>
+				<div>
+					{isModal.content}
+				</div>
 			</main>
 		);
 	}
@@ -24,7 +26,8 @@ function Modal(props) {
 Modal.propTypes = {
 	props: PropTypes.any,
 	isModal: PropTypes.object, 
-	setIsModal: PropTypes.func
+	setIsModal: PropTypes.func,
+	styles: PropTypes.any
 };
 
 export default Modal;
