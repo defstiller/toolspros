@@ -1,28 +1,30 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect} from "react";
 import PropTypes from "prop-types";
 function Modal(props) {
-	const {delay, isModalOpen, setIsModalOpen} = props;
+	const {isModal, setIsModal} = props;
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			setIsModalOpen(false);
-		}, delay);
+			setIsModal({
+				isOpen: false,
+				content: "",
+				delay: 5000
+			});
+		}, isModal.delay);
 		return () => clearTimeout(timer)
-	}, [isModalOpen]);
-	
-	if(isModalOpen) {
+	}, [isModal]);
+
+	if(isModal.isOpen) {
 		return (
 			<main>
-				{props.children}
+				{isModal.content}
 			</main>
 		);
 	}
 }
 Modal.propTypes = {
 	props: PropTypes.any,
-	children: PropTypes.any,
-	delay: PropTypes.number,
-	isModalOpen: PropTypes.bool, 
-	setIsModalOpen: PropTypes.func
+	isModal: PropTypes.object, 
+	setIsModal: PropTypes.func
 };
 
 export default Modal;
