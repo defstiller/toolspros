@@ -1,17 +1,20 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 
 import HeaderLayout from "../../components/header/HeaderLayout";
-import BackgroundVideo from "./backgroundVideo/BackgroundVideo";
+const BackgroundVideo = lazy (() => import ("./backgroundVideo/BackgroundVideo"));
 import Tagline from "./tagline/Tagline";
 import ShopNowButton from "./shopNowButton/ShopNowButton";
 
+import Loading from "../../assets/svgsReactReady/loading/LoadingSvg";
 
 function LandingPageLayout() {
 	return (<>
-		<HeaderLayout />
-		<BackgroundVideo />
-		<Tagline />
-		<ShopNowButton />
+		<Suspense fallback={<Loading />}>
+			<HeaderLayout />
+			<BackgroundVideo />
+			<Tagline />
+			<ShopNowButton />
+		</Suspense>
 	</>
 	);
 }

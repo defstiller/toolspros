@@ -1,11 +1,13 @@
-import React, {useEffect} from "react";
+import React, {useEffect, lazy, Suspense} from "react";
 
 import {ProductDataContext} from "../../context/context";
 import useAddGetData from "../../logic/firebaseLogic/firebaseDB/useAddGetData";
 
 import HeaderLayout from "../../components/header/HeaderLayout";
-import SearchBar from "./products/SearchBar";
-import FeaturedProducts from "./featuredProducts/FeaturedProducts";
+const SearchBar = lazy (() => import ("./products/SearchBar"));
+const FeaturedProducts = lazy (() => import ("./featuredProducts/FeaturedProducts"));
+import Loading from "../../assets/svgsReactReady/loading/LoadingSvg";
+
 function ShopPageLayout() {
 
 	const {loading, error, receivedData, getData} = useAddGetData();
@@ -17,8 +19,10 @@ function ShopPageLayout() {
 			loading, error, receivedData
 		}}>
 			<HeaderLayout />
-			<FeaturedProducts />
-			<SearchBar />
+			<Suspense fallback={<Loading />}>
+				<FeaturedProducts />
+				<SearchBar />
+			</Suspense>
 		</ProductDataContext.Provider>
 	);
 }
