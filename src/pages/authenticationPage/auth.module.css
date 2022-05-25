@@ -1,0 +1,26 @@
+.formDiv {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.form input {
+	margin: 10px;
+}
+.form input:first-child {
+	margin: 0;
+}
+.modal {
+	width: 40%;
+    height:40%;
+    border: 1px solid black;
+    position: fixed;
+    margin: auto;
+    inset: 0;
+	z-index: 99;
+	color: red;
+	background-color: rgba(0, 0, 0, 0.925);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
