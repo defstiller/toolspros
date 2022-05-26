@@ -27,6 +27,7 @@ function HeaderLayout() {
 				return document.removeEventListener("mouseup", hideDropDown);			
 			});
 		}
+		return;
 	}, [dropDown]);
 	
 	return <div className={styles.headerDiv}>
