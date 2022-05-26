@@ -13,14 +13,16 @@ function ProductCardWide(props) {
 	return(
 		<article className={classes.cardArticle}>
 			<img src={product.imgUrl}  onClick={() => handleProductClick(product)} className={classes.productImg}/>
-			<div>
+			<div className={classes.infoDiv}>
 				<p>{product.name}</p>
 				<p>{product.description}</p>
 				<p>Price: ${product.price}</p>
+				<p>
+					Shipping: {product.shipping > 0 
+						? "$"+product.shipping 
+						: "FREE"}
+				</p>
 			</div>
-
-			{product.shipping > 0 
-			&& <p>Shipping: {product.shipping}</p>}
 
 			{
 				inCart(product.id) ?<>
