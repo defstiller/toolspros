@@ -7,7 +7,7 @@ function LoadingModal(props) {
 	if(isLoading) {
 		return (
 			<main className={styles.loader}>
-				<LoadingSvg />;
+				<LoadingSvg />
 			</main>
 		);
 	}
