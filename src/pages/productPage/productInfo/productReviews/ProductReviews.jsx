@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef} from "react";
 import PropTypes from "prop-types";
 
 import StarRating from "../../../../components/productCard/starRating/StarRating";
+import ReviewForm from "./reviewForm/ReviewForm";
 
 import useAddGetData from "../../../../logic/firebaseLogic/firebaseDB/useAddGetData";
 import useHandleInputChange from "../../../../logic/product/useHandleInputChange";
@@ -14,15 +15,17 @@ function ProductReviews(props) {
 		userId: null,
 		userEmail: null
 	});
+	const auth = getAuth();
+	const user = auth.currentUser;
 	useEffect(() => {
-		const auth = getAuth();
-		const user = auth.currentUser;
-		const userId = user.uid;
-		const userEmail = user.email;
-		setUserData({
-			userId,
-			userEmail
-		});
+		if(user) {
+			const userId = user.uid;
+			const userEmail = user.email;
+			setUserData({
+				userId,
+				userEmail
+			});
+		}
 	}, []);
 	const ratingsAndUids = useRef({
 		userUidsArray: [],
@@ -94,30 +97,14 @@ function ProductReviews(props) {
 					);
 				})}
 			</article>
-			{	// If review with userUid already exists will not render Leave a review
-				ratingsAndUids.current.userUidsArray.includes(userData.userId) 
-				|| 
-				<aside>
-					<p>Leave a review</p>
-					<form onSubmit={handleReviewSubmit}>
-						<input 
-							placeholder="rating" 
-							type="number" 
-							min="1" max="5" 
-							name="rating" 
-							value={input.rating || ""} 
-							onChange={objectInput}/>
-						<input 
-							placeholder="comment" 
-							name="comment" 
-							value={input.comment || ""} 
-							onChange={objectInput}/>
-						<button type="submit">
-							Submit
-						</button>
-					</form>
-				</aside>		
-			}
+			{user && 
+			<ReviewForm 
+				handleReviewSubmit={handleReviewSubmit} 
+				input={input} 
+				objectInput={objectInput} 
+				ratingsAndUids={ratingsAndUids}	
+				userData={userData}
+			/>}
 		</div>
 	);
 }
