@@ -17,7 +17,6 @@
 
 .imgDiv img {
 	height: 20vh;
-	width: 20vw;
 	object-fit: contain;
 	overflow: hidden;
 }
