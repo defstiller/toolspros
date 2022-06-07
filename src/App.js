@@ -13,6 +13,8 @@ import Cart from "./pages/cart/Cart";
 import Auth from "./pages/authenticationPage/Auth";
 import AccountPage from "./pages/accountPage/AccountPage";
 import CheckoutPage from "./pages/checkoutPage/CheckoutPage";
+import ContactPage from "./pages/contactPage/ContactPage";
+import About from "./pages/aboutPage/About";
 
 import debounce from "./logic/functions/debounceFunction";
 
@@ -70,6 +72,12 @@ function App() {
 						} />
 						<Route exact path="/checkout" element={
 							<CheckoutPage />
+						} />
+						<Route exact path="/contact" element={
+							<ContactPage />
+						} />
+						<Route exact path="/about" element={
+							<About />
 						} />
 					</Routes>
 				</Router>
