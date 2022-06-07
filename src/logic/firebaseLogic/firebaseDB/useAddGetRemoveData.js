@@ -1,14 +1,15 @@
 import {useState} from "react";
 
-import {getDocs, collection, addDoc} from "firebase/firestore/lite";
+import {getDocs, collection, addDoc, doc, deleteDoc} from "firebase/firestore/lite";
 import {db} from "../firebaseConfig";
+import { v4 as uuidv4 } from 'uuid';
 
-function useAddGetData() {
+function useAddGetRemoveData() {
 	const [loading, setLoading] = useState(false);
 	const [response, setResponse] = useState();
 	const [error, setError] = useState(false);
 	const [receivedData, setReceivedData] = useState([]);
-	
+	// console.log(uuidv4())
 	/**
  * It takes a collection name and data to post, sets the loading state to true, tries to add the data
  * to the collection, sets the response state to the response message, and finally sets the loading
@@ -23,7 +24,12 @@ function useAddGetData() {
 		setLoading(true);
 		try {
 			const dataToWrite = collection(db, dbCollection);
-			const fetchResponse = await addDoc(dataToWrite, dataToPost);
+			const newUuid = uuidv4();
+			const dataToPostWithUuid = { // add unique id to posted data
+				...dataToPost,
+				id: newUuid
+			};
+			const fetchResponse = await addDoc(dataToWrite, dataToPostWithUuid);
 			const responseMessage = "Data added with ID: " + fetchResponse.id;
 			setResponse(responseMessage);
 		} catch (err) {
@@ -54,8 +60,21 @@ function useAddGetData() {
 			setLoading(false);
 		}
 	}
-	return {loading, response, error, receivedData, addData, getData};
+	async function removeData(dbCollection, Id) {
+		try {
+			setLoading(true);
+			const response = await deleteDoc(doc(db, dbCollection, Id));
+			const responseMessage = "Data added with ID: " + response;
+			setResponse(responseMessage);
+		} catch (err) {
+			setError(err);
+			console.log(err);
+		} finally {
+			setLoading(false);
+		}
+	}
+	return {loading, response, error, receivedData, addData, getData, removeData};
 }
 
 
-export default useAddGetData;
+export default useAddGetRemoveData;
