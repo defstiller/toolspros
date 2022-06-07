@@ -10,8 +10,8 @@
 	justify-content: center;
 }
 
-h1,
-h2 {
+.loadingMain h1,
+.loadingMain h2 {
     text-align: center;
 }
 
