@@ -18,8 +18,8 @@ function DropDown() {
 	}
 	return (
 		<>
-			<Link to="/account">
-				<button>Account</button>
+			<Link to="/admin">
+				<button>Admin Page</button>
 			</Link>
 			{isUser 
 				? <button onClick={() =>  handleSignOut()}
