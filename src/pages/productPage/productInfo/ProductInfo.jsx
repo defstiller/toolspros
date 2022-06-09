@@ -2,17 +2,18 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-import useAddGetData from "../../../logic/firebaseLogic/firebaseDB/useAddGetData";
+import useAddGetRemoveData from "../../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
 import HeaderLayout from "../../../components/header/HeaderLayout";
 import ProductReviews from "./productReviews/ProductReviews";
 import AddToCart from "../../../components/addToCart/AddToCart";
+import ImageWithFallback from "../../../components/imageWithFallback/ImageWithFallback";
 
 import styles from "./productInfo.module.css";
 import StarRating from "../../../components/productCard/starRating/StarRating";
 
 function ProductInfo() {
 	const params = useParams();
-	const {loading, error, response, receivedData, addData, getData} = useAddGetData();
+	const {loading, error, response, receivedData, addData, getData} = useAddGetRemoveData();
 	const [product, setProduct] = useState();
 	const [averageRating, setAverageRating] = useState(0);
 	useEffect(() => {
@@ -32,7 +33,7 @@ function ProductInfo() {
 			{product && <>
 				<main className={styles.main}>
 					<figure>
-						<img src={product.imgUrl} />
+						<ImageWithFallback src={product.imgUrl} />
 					</figure>
 					<div>
 						<h1>{product.name}</h1>
