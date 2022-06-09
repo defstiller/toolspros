@@ -1,0 +1,20 @@
+.addProductDiv{
+	margin-top: 2vh;
+	display: flex;
+	justify-content: center;
+}
+.form {
+	display: grid;
+	grid-template: repeat(9, 1fr)/ 1fr 1fr;
+	gap: 1vh;
+	align-items: center;
+}
+.form input {
+	width: 30%;
+	justify-self: flex-end;
+}
+.form button {
+	grid-column: 1/span 2;
+	width: 30%;
+	justify-self: center;
+}
