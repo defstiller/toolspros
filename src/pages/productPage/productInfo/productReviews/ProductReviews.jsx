@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import StarRating from "../../../../components/productCard/starRating/StarRating";
 import ReviewForm from "./reviewForm/ReviewForm";
 
-import useAddGetData from "../../../../logic/firebaseLogic/firebaseDB/useAddGetData";
-import useHandleInputChange from "../../../../logic/product/useHandleInputChange";
+import useAddGetRemoveData from "../../../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
+import useHandleInputChange from "../../../../logic/functions/useHandleInputChange";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -32,7 +32,7 @@ function ProductReviews(props) {
 		ratings: []
 	});
 	const {productDocId, setAverageRating} = props;
-	const {loading, error,response ,receivedData, addData, getData} = useAddGetData();
+	const {loading, error,response ,receivedData, addData, getData} = useAddGetRemoveData();
 	const {objectInput, input} = useHandleInputChange();
 	const [reviews, setReviews] = useState(null);
 	function handleReviewSubmit(event) {
@@ -83,10 +83,11 @@ function ProductReviews(props) {
 			<article className={classes.reviewArticle}>
 				<p>REVIEWS</p>
 				{reviews && reviews.map(review => {
+					console.log(review);
 					return (
 						<div key={review.id} className={classes.reviewDiv}>
 							<div>
-								<p>Commented by: {userData.userEmail}</p>
+								<p>Commented by: {review.leftByEmail}</p>
 								<p>{review.dateReviewLeft}</p>
 								<StarRating width="1em" rating={parseInt(review.rating, 10)}/>
 							</div>
