@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 import Modal from "../../components/modal/Modal";
 import LoadingModal from "../../components/modal/loadingModal/LoadingModal";
+import HeaderLayout from "../../components/header/HeaderLayout";
 
 import handleAuthSubmitClick from "./handleAuthSubmitClick";
 import styles from "./auth.module.css";
@@ -42,7 +43,8 @@ function Auth() {
 		// ...
 		}
 	});
-	return (
+	return <>
+		<HeaderLayout />
 		<main className={styles.main}>
 			<LoadingModal styles={styles} isLoading={isLoading}/>
 			{isModal.isOpen && <Modal 
@@ -51,11 +53,10 @@ function Auth() {
 				styles={styles}
 			/>}
 			<div className={styles.formDiv}>
-
 				{isRegister ?
-					<p>Sign up</p>
+					<h1>Sign up</h1>
 					:
-					<p>Log in</p>
+					<h1>Log in</h1>
 				}
 				<form className={styles.form}
 					onSubmit={(event) => {
@@ -81,9 +82,11 @@ function Auth() {
 					:
 					<button onClick={() => setIsRegister(true)}>Register Instead</button>
 				}
+				<p>For admin account use <br/>email: admin@gmail.com <br/> password: easyAdmin123</p>
 			</div>
 		</main>
-	)
+	</>
+
 
 }
 
