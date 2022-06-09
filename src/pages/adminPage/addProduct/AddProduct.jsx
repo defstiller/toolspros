@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
-import useAddGetData from "../../../logic/firebaseLogic/firebaseDB/useAddGetData";
+import useAddGetRemoveData from "../../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
+
+import styles from "./addProduct.module.css";
 
 function AddProduct() {
 
-	const {loading, response, error, addData} = useAddGetData();
+	const {loading, response, error, addData} = useAddGetRemoveData();
 	const [input, setInput] = useState({
 		name: "",
 		description: "",
@@ -30,11 +32,11 @@ function AddProduct() {
 	}
 
 	return(
-		<div>
+		<div className={styles.addProductDiv}>
 			{error && <p>error</p>}
 			{response && <p>{response}</p>}
 			{loading && <p>Loading...</p>}
-			<form onSubmit={handleAddSubmit}>
+			<form onSubmit={handleAddSubmit} className={styles.form}>
 				<label htmlFor="name">Name</label>
 				<input name="name" value={input.name} onChange={handleInputChange} required/> 
 
