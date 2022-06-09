@@ -1,7 +1,7 @@
 import React, {useEffect, lazy, Suspense} from "react";
 
 import {ProductDataContext} from "../../context/context";
-import useAddGetData from "../../logic/firebaseLogic/firebaseDB/useAddGetData";
+import useAddGetRemoveData from "../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
 
 import HeaderLayout from "../../components/header/HeaderLayout";
 const SearchBar = lazy (() => import ("./products/SearchBar"));
@@ -10,7 +10,7 @@ import Loading from "../../assets/svgsReactReady/loading/LoadingSvg";
 
 function ShopPageLayout() {
 
-	const {loading, error, receivedData, getData} = useAddGetData();
+	const {loading, error, receivedData, getData} = useAddGetRemoveData();
 	useEffect(() => {
 		getData("products");
 	}, []);
