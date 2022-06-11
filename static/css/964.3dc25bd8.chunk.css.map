@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/964.3dc25bd8.chunk.css","mappings":"AAAA,sCAIC,QAAS,CAFT,gBAAiB,CADjB,cAAe,CAEf,UAED","sources":["pages/landingPage/backgroundVideo/backgroundVideo.module.css"],"sourcesContent":[".backgroundVid {\r\n\tposition: fixed;\r\n\tobject-fit: cover;\r\n\tz-index: -1;\r\n\tbottom: 0;\r\n}"],"names":[],"sourceRoot":""}
