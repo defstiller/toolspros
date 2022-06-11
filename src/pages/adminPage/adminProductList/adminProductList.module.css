@@ -1,0 +1,145 @@
+.getProductDiv {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+}
+.productMain ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	list-style-type: none;
+	padding-left: 0;
+}
+.pageChangeBtns {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.pageChangeBtns button {
+	top: 10vh;
+	width: 100px;
+	margin-bottom: 5vh;
+}
+.pageChangeBtns button:first-child {
+	margin-right: 20px;
+}
+.listItem {
+	width: 100%;
+}
+.cardArticle {
+	border: 1px solid rgb(168, 255, 117);
+	text-align: center;
+	margin: 2.5%;
+	width: 95%;
+}
+
+.cardArticle:hover {
+	background-color: rgba(168, 255, 117, 0.05)
+}
+.cardArticle > figure > img {
+	object-fit: contain;
+	width:100%;
+	height: 20vh;
+}
+
+.cardArticle img:hover {
+	cursor: pointer;
+}
+
+.infoDiv {
+	margin-bottom: 5%;
+}
+/* Product card end */
+
+/* Add to cart start */
+.cartDiv {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cartDiv > menu {
+	width: 100%;
+	padding: 0;
+}
+.changeAmountBtns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.changeAmountBtns > p {
+	margin: 0 1vw;
+}
+.changeAmountBtns > button {
+	margin: 0.5vh 0;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+.link {
+	width: 100%;
+}
+.link > a {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	text-decoration: none;
+}
+.cartBtn {
+	width: 60%;
+	height: 2rem;
+}
+.addToCartMenu {
+	display: flex;
+	justify-content: center;
+}
+.addToCartMenu > button {
+	margin-top: 2rem;
+	height: 2rem;
+}
+.addToCartMenu > button:hover,
+.changeAmountBtns > button:hover,
+.cartBtn {
+	cursor: pointer;
+}
+/* Add to cart end */
+
+@media screen and (min-width: 350px) {
+	.listItem {
+		width: 45%;
+	}
+	.cardArticle > figure {
+		margin: 5%;
+	}
+}
+@media screen and (min-width: 420px) {
+	.listItem {
+		width: 30%;
+	}
+	.cartBtn,
+		.addToCartMenu button {
+		width: 80%;
+	}
+}
+@media screen and (min-width: 650px) {
+	.cartBtn,
+	.addToCartMenu button {
+		width: 70%;
+	}
+}
+@media screen and (min-width: 800px) {
+	.listItem {
+		width: 24%;
+	}
+	.cartBtn,
+	.addToCartMenu button {
+		width: 65%;
+	}
+}
+@media screen and (min-width: 1000px) {
+	.listItem {
+		width: 24%;
+	}
+	.cartBtn,
+	.addToCartMenu button {
+		width: 45%;
+	}
+}
