@@ -8,7 +8,8 @@ function handleAuthSubmitClick(
 	authInfo, 
 	setIsLoading, 
 	isRegister, 
-	setIsModal, 
+	setResponse, 
+	setError,
 	auth) { 
 		
 	const {email, password} = authInfo;
@@ -18,25 +19,11 @@ function handleAuthSubmitClick(
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in 
-				setIsModal({
-					content: 
-							<h1>Succesfully created account, reddirecting to shop page.</h1>, 
-					isOpen: true, 
-					delay: 5000});
+				setResponse("Succesfully created account, reddirecting to shop page.");
 				// ...
 			})
 			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				setIsModal({
-					content: <>
-						<h1>An error occured</h1>
-						<p>{errorCode}</p>
-						<p>{errorMessage}</p>
-						<button onClick={() => setIsModal({})}>Close</button>
-					</>,
-					isOpen: true, 
-					delay: 50000});
+				setError(error);
 				// ..
 			})
 			.finally(() => setIsLoading(false));
@@ -47,25 +34,12 @@ function handleAuthSubmitClick(
 			.then((userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
-				setIsModal({
-					content: 
-							<h1>Succesfully logged in as {user}, reddirecting to shop page.</h1>, 
-					isOpen: true, 
-					delay: 5000});
+				setResponse("Succesfully logged in, reddirecting to shop page.");
+
 				// ...
 			})
 			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				setIsModal({
-					content: <>
-						<h1>An error occured</h1>
-						<p>{errorCode}</p>
-						<p>{errorMessage}</p>
-						<button onClick={() => setIsModal({})}>Close</button>
-					</>,
-					isOpen: true, 
-					delay: 50000});
+				setError(error);
 			})
 			.finally(() => setIsLoading(false));
 	}
