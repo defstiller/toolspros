@@ -15,3 +15,18 @@
 	justify-content: center;
 	align-items: center;
 }
+.commentDiv p {
+	word-break: break-all;
+}
+.reviewFormDiv{
+	margin-left: 1vw;
+
+}
+.comment {
+	height: 10vh;
+	margin-top: 1vh;
+	width: 40%;
+}
+.reviewForm button {
+	margin-top: 0.5vh;
+}
