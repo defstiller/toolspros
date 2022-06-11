@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/toolspros/static/css/main.fa2e6548.css",
-    "main.js": "/toolspros/static/js/main.742cb934.js",
+    "main.js": "/toolspros/static/js/main.5d3310cf.js",
     "static/css/964.3dc25bd8.chunk.css": "/toolspros/static/css/964.3dc25bd8.chunk.css",
     "static/js/964.c91e5382.chunk.js": "/toolspros/static/js/964.c91e5382.chunk.js",
     "static/css/536.dd648e49.chunk.css": "/toolspros/static/css/536.dd648e49.chunk.css",
@@ -13,7 +13,7 @@
     "static/media/noImage.webp": "/toolspros/static/media/noImage.c92a43655b51cc42ccae.webp",
     "index.html": "/toolspros/index.html",
     "main.fa2e6548.css.map": "/toolspros/static/css/main.fa2e6548.css.map",
-    "main.742cb934.js.map": "/toolspros/static/js/main.742cb934.js.map",
+    "main.5d3310cf.js.map": "/toolspros/static/js/main.5d3310cf.js.map",
     "964.3dc25bd8.chunk.css.map": "/toolspros/static/css/964.3dc25bd8.chunk.css.map",
     "964.c91e5382.chunk.js.map": "/toolspros/static/js/964.c91e5382.chunk.js.map",
     "536.dd648e49.chunk.css.map": "/toolspros/static/css/536.dd648e49.chunk.css.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.fa2e6548.css",
-    "static/js/main.742cb934.js"
+    "static/js/main.5d3310cf.js"
   ]
 }
