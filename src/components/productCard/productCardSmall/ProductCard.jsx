@@ -7,26 +7,9 @@ import AddToCart from "../../addToCart/AddToCart";
 import ImageWithFallback from "../../imageWithFallback/ImageWithFallback";
 
 function ProductCard(props) {
-	const {product, handleProductClick, styles, handleQuantityChange, removeItem} = props;
+	const {product, handleProductClick, styles, loading} = props;
 	const { addItem, inCart, getItem, updateItemQuantity } = useCart();
 	const productInCart = getItem(product.id);
-	// return(
-	// 	<article className={styles.cardArticle + " " + styles.classname}>
-	// 		<p>{product.name}</p>
-
-	// 		<p>Price: ${product.price}</p>
-
-	// 		{product.shipping > 0 
-	// 			? <p>Shipping: {product.shipping}</p>
-	// 			: <p>Free Shipping</p>}
-
-	// 		<div onClick={() => handleProductClick(product)} className={styles.imgDiv}>
-	// 			<img src={product.imgUrl} />
-	// 		</div>
-	// 		<AddToCart product={product} />
-	// 	</article>
-
-	// );
 	return(
 		<article className={styles.cardArticle}>
 			<figure>
@@ -40,7 +23,7 @@ function ProductCard(props) {
 						? "$"+product.shipping 
 						: "FREE"}
 				</p>
-				<AddToCart product={product} styles={styles}/>
+				<AddToCart product={product} styles={styles} loading={loading} />
 			</div>
 			{props.children}
 		</article>
@@ -57,5 +40,6 @@ ProductCard.propTypes = {
 	styles: PropTypes.any,
 	removeItem: PropTypes.any,
 	children: PropTypes.any,
+	loading: PropTypes.bool
 };
 export default ProductCard;
