@@ -23,7 +23,7 @@ function DropDown() {
 	return (
 		<>
 			{width < 575 && <NavBar styles={styles}/>}
-			<Link to="/toolspros//admin">
+			<Link to="/toolspros/admin">
 				<button>Admin Page</button>
 			</Link>
 			{isUser 
