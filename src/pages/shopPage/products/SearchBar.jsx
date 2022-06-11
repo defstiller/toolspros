@@ -4,6 +4,7 @@ import classes from "./searchBar.module.css";
 import {ProductDataContext} from "../../../context/context";
 
 import ProductList from "./productList/ProductList";
+import LoadingModal from "../../../components/modal/loadingModal/LoadingModal";
 
 function SearchBar() {
 	const {receivedData, loading, error} = useContext(ProductDataContext);
@@ -36,6 +37,7 @@ function SearchBar() {
 
 	return(
 		<div className={classes.searchBarDiv}>
+			<LoadingModal loading={loading} />
 			<h1>Best products on the market</h1>
 			<form>
 				<input type="search" placeholder="Search..." value={input} onChange={handleInputChange}/>
