@@ -30,11 +30,11 @@ function HeaderLayout() {
 	
 	return <div className={styles.headerDiv}>
 		<header className={styles.header}>
-			<Link to="/" >
+			<Link to="/toolspros/" >
 				<LogoSvg />
 			</Link>
 			{width > 575 && <NavBar styles={styles}/>}
-			<Link to="/cart">
+			<Link to="/toolspros/cart">
 				<CartButtonSvg styles={styles}/>
 			</Link>
 			<AccountSvg 

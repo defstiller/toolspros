@@ -23,14 +23,14 @@ function DropDown() {
 	return (
 		<>
 			{width < 575 && <NavBar styles={styles}/>}
-			<Link to="/admin">
+			<Link to="/toolspros//admin">
 				<button>Admin Page</button>
 			</Link>
 			{isUser 
 				? <button onClick={() =>  handleSignOut()}
 				>Sign Out</button>
 				:
-				<Link to="/auth">
+				<Link to="/toolspros/auth">
 					<button>Sign in</button>
 				</Link>
 			}
