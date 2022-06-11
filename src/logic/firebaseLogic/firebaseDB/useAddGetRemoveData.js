@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 import {getDocs, collection, addDoc, doc, deleteDoc} from "firebase/firestore/lite";
 import {db} from "../firebaseConfig";
@@ -9,7 +9,6 @@ function useAddGetRemoveData() {
 	const [response, setResponse] = useState();
 	const [error, setError] = useState(false);
 	const [receivedData, setReceivedData] = useState([]);
-	// console.log(uuidv4())
 	/**
  * It takes a collection name and data to post, sets the loading state to true, tries to add the data
  * to the collection, sets the response state to the response message, and finally sets the loading
@@ -42,8 +41,8 @@ function useAddGetRemoveData() {
 	async function getData(dbCollection) {
 		try {
 			setLoading(true);
-			const response = collection(db, dbCollection);
-			const data = await getDocs(response);
+			const responseData = collection(db, dbCollection);
+			const data = await getDocs(responseData);
 			const dataSeparated = data.docs.map(doc => {
 				const data = doc.data();
 				const docId = doc.id;
@@ -63,17 +62,16 @@ function useAddGetRemoveData() {
 	async function removeData(dbCollection, Id) {
 		try {
 			setLoading(true);
-			const response = await deleteDoc(doc(db, dbCollection, Id));
-			const responseMessage = "Data added with ID: " + response;
-			setResponse(responseMessage);
+			await deleteDoc(doc(db, dbCollection, Id));
+			setResponse("Item deleted, reloading list");
+			getData(dbCollection);
 		} catch (err) {
 			setError(err);
-			console.log(err);
 		} finally {
 			setLoading(false);
 		}
 	}
-	return {loading, response, error, receivedData, addData, getData, removeData};
+	return {loading, response, error, receivedData, addData, getData, removeData, setError, setResponse};
 }
 
 
