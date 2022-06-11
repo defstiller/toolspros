@@ -33,13 +33,7 @@ function HeaderLayout() {
 			<Link to="/" >
 				<LogoSvg />
 			</Link>
-			<NavBar styles={styles}/>
-			{/* { width > 768 
-				?
-				<NavBar styles={styles}/>
-				:
-				<HeaderMobile />
-			} */}
+			{width > 575 && <NavBar styles={styles}/>}
 			<Link to="/cart">
 				<CartButtonSvg styles={styles}/>
 			</Link>
@@ -53,7 +47,7 @@ function HeaderLayout() {
 				className={styles.dropDown}  
 				ref={dropDownDiv} 
 			>
-				<DropDown />
+				<DropDown width={width}/>
 			</div>
 		)}
 	</div>;

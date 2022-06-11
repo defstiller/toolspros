@@ -4,14 +4,16 @@
 	top: 0;
 	align-self: start;
 	z-index: 10;
+	max-width: 100%;
 }
 .header {
 	display: grid;
-	grid-template: 1fr/ 1fr 85% 1fr 1fr;
+	grid-template: 1fr/ 1fr 75% 1fr 1fr;
 	justify-items: center;
 	align-items: center;
 	background-color: rgba(168, 255, 117, 0.76);
 	color: black;
+	max-width: 100%;
 }
 .dropDown{
 	position: absolute;
@@ -78,4 +80,12 @@
 	.svgIcon circle {
 	  stroke: #4691f6;
 	  stroke-width: 1;
+}
+@media only screen and (max-width: 575px){
+	.header {
+		grid-template: 1fr/ 1fr 1fr 1fr;
+	}
+	.dropDown {
+		width: 100%;
+	}
 }
