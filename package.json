@@ -8,7 +8,6 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.8.2",
-    "gh-pages": "^4.0.0",
     "nuka-carousel": "^5.0.15",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
@@ -23,7 +22,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "eslint": "^8.14.0",
-    "eslint-plugin-react": "^7.29.4"
+    "eslint-plugin-react": "^7.29.4",
+    "gh-pages": "^4.0.0"
   }
 }
