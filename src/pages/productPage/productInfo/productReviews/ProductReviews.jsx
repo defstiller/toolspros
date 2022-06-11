@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 
 import StarRating from "../../../../components/productCard/starRating/StarRating";
 import ReviewForm from "./reviewForm/ReviewForm";
+import LoadingModal from "../../../../components/modal/loadingModal/LoadingModal";
 
 import useAddGetRemoveData from "../../../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
 import useHandleInputChange from "../../../../logic/functions/useHandleInputChange";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-import classes from "./productReviews.module.css";
+import styles from "./productReviews.module.css";
 function ProductReviews(props) {
 	const [userData, setUserData] = useState({
 		userId: null,
@@ -34,7 +35,7 @@ function ProductReviews(props) {
 	const {productDocId, setAverageRating} = props;
 	const {loading, error,response ,receivedData, addData, getData} = useAddGetRemoveData();
 	const {objectInput, input} = useHandleInputChange();
-	const [reviews, setReviews] = useState(null);
+	const [reviews, setReviews] = useState([]);
 	function handleReviewSubmit(event) {
 		event.preventDefault();
 		const reviewsDataIdLength = receivedData.length + 1;
@@ -80,23 +81,24 @@ function ProductReviews(props) {
 	}, [receivedData]);
 	return (
 		<div>
-			<article className={classes.reviewArticle}>
-				<p>REVIEWS</p>
+			<LoadingModal loading={loading} />
+			<article className={styles.reviewArticle}>
+				{reviews.length ? <p>REVIEWS</p> : <p>No reviews found</p>}
 				{reviews && reviews.map(review => {
-					console.log(review);
 					return (
-						<div key={review.id} className={classes.reviewDiv}>
+						<div key={review.id} className={styles.reviewDiv}>
 							<div>
 								<p>Commented by: {review.leftByEmail}</p>
 								<p>{review.dateReviewLeft}</p>
 								<StarRating width="1em" rating={parseInt(review.rating, 10)}/>
 							</div>
-							<div className={classes.commentDiv}>
+							<div className={styles.commentDiv}>
 								<p>{review.comment}</p>
 							</div>
 						</div>
 					);
-				})}
+				})
+				}
 			</article>
 			{user && 
 			<ReviewForm 
@@ -105,6 +107,7 @@ function ProductReviews(props) {
 				objectInput={objectInput} 
 				ratingsAndUids={ratingsAndUids}	
 				userData={userData}
+				styles={styles}
 			/>}
 		</div>
 	);
