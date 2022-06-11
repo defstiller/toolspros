@@ -1,0 +1,6 @@
+.messagesDiv {
+	display: flex;
+	word-break: break-all;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
