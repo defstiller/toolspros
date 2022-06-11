@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import LoadingSvg from "../../../assets/svgsReactReady/loading/LoadingSvg";
 
 function LoadingModal(props) {
-	const {styles, isLoading} = props;
-	if(isLoading) {
+	const {loading} = props;
+	if(loading) {
 		return (
-			<main className={styles.loader}>
+			<main>
 				<LoadingSvg />
 			</main>
 		);
@@ -15,6 +15,6 @@ function LoadingModal(props) {
 }
 LoadingModal.propTypes = {
 	styles: PropTypes.any,
-	isLoading: PropTypes.bool
+	loading: PropTypes.bool
 };
 export default LoadingModal;
