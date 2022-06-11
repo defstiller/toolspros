@@ -5,21 +5,27 @@ function ReviewForm(props) {
 	// If review with userUid already exists will not render Leave a review
 	if(!ratingsAndUids.current.userUidsArray.includes(userData.userId)) {
 		return (
-			<aside>
+			<aside className={styles.reviewFormDiv}>
 				<p>Leave a review</p>
-				<form onSubmit={handleReviewSubmit}>
+				<form onSubmit={handleReviewSubmit} className={styles.reviewForm}>
 					<input 
 						placeholder="rating" 
 						type="number" 
 						min="1" max="5" 
 						name="rating" 
 						value={input.rating || ""} 
-						onChange={objectInput}/>
-					<input 
+						onChange={objectInput}
+						className={styles.rating}
+					/>
+					<br />
+					<textarea 
 						placeholder="comment" 
 						name="comment" 
 						value={input.comment || ""} 
-						onChange={objectInput}/>
+						onChange={objectInput}
+						className={styles.comment}
+					/>
+					<br />
 					<button type="submit">
 								Submit
 					</button>
