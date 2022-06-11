@@ -1,0 +1,8 @@
+.adminSection {
+	display: flex;
+	justify-content: space-around;
+	padding-top: 1vh;
+}
+.adminSection button {
+	width: 20%;
+}
