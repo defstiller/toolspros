@@ -17,13 +17,14 @@ import styles from "./auth.module.css";
 function Auth() {
 	const auth = getAuth();
 	const navigate = useNavigate();
-	const [isModal, setIsModal] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
 	const [isRegister, setIsRegister] = useState(true);
 	const [authInfo, setAuthInfo] = useState({
 		email: "",
 		password: ""
 	});
+	const [response, setResponse] = useState(null);
+	const [error, setError] = useState(null);
 
 	function handleChange(event) {
 		const value = event.target.value;
@@ -39,19 +40,25 @@ function Auth() {
 		// User is signed in, see docs for a list of available properties
 		// https://firebase.google.com/docs/reference/js/firebase.User
 			// const uid = user.uid;
-			navigate("/shop");
+			const timer = setTimeout(() => {
+				navigate("/shop");
+			}, 2000);
+			return () => clearTimeout(timer);
+		
 		// ...
 		}
 	});
 	return <>
 		<HeaderLayout />
 		<main className={styles.main}>
-			<LoadingModal styles={styles} isLoading={isLoading}/>
-			{isModal.isOpen && <Modal 
-				isModal={isModal} 
-				setIsModal={setIsModal}
-				styles={styles}
-			/>}
+			<LoadingModal loading={isLoading}/>
+			<Modal 
+				response={response}
+				error={error}
+				setResponse={setResponse}
+				setError={setError}
+				delay={5000}
+			/>
 			<div className={styles.formDiv}>
 				{isRegister ?
 					<h1>Sign up</h1>
@@ -60,7 +67,7 @@ function Auth() {
 				}
 				<form className={styles.form}
 					onSubmit={(event) => {
-						handleAuthSubmitClick(event, authInfo, setIsLoading, isRegister, setIsModal, auth);
+						handleAuthSubmitClick(event, authInfo, setIsLoading, isRegister, setResponse, setError, auth);
 					}}>
 					<input 
 						placeholder="email" 
