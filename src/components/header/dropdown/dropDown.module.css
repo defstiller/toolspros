@@ -1,0 +1,15 @@
+/* This is for mobile dropdown only */
+.NavBar { 
+	list-style: none;
+	padding: 0;
+}
+.NavBar li {
+	background-color: transparent;
+	border: none;
+	width: 100%;
+	padding: 1vh 0;
+	text-decoration: none;
+}
+.NavBar li a:link {
+	text-decoration: none;
+}
