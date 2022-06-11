@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState, useEffect} from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -23,7 +23,7 @@ import {AuthContext, ScreenResizeContext} from "./context/context";
 function App() {
 	const auth = getAuth();
 	const [isUser, setIsUser] = useState(false);
-	const [width, setWidth] = useState(window.innerWidth)
+	const [width, setWidth] = useState(window.innerWidth);
 	useEffect(() =>{
 		window.addEventListener("resize", debounce(() => setWidth(window.innerWidth) ,250, false), false);
 

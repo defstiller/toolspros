@@ -14,10 +14,10 @@ function DropDown() {
 	function handleSignOut() {
 		signOut(auth).then(() => {
 			// Sign-out successful.
-			console.log("signed out")
+			console.log("signed out");
 		}).catch((error) => {
 			// An error happened.
-			console.log(error)
+			console.log(error);
 		});
 	}
 	return (
