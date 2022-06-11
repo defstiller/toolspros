@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import handleQuantityChange from "../../logic/product/handleQuantityChange";
 
 function AddToCart(props) {
-	const {product, styles} = props;
+	const {product, styles, loading} = props;
 	const { addItem, inCart, getItem, updateItemQuantity } = useCart();
 	const productInCart = getItem(product.id);
 	return (
@@ -20,13 +20,13 @@ function AddToCart(props) {
 					</div>
 					<div className={styles.link}>
 						<Link to="/cart">
-							<button className={styles.cartBtn}>Go to cart</button>
+							<button className={styles.cartBtn} disabled={loading}>Go to cart</button>
 						</Link>
 					</div>
 				</menu>
 				: 
 				<menu className={styles.addToCartMenu}>
-					<button onClick={() => addItem(product, 1)}>
+					<button onClick={() => addItem(product, 1)} disabled={loading}>
 						Add to cart
 					</button>
 				</menu>
@@ -35,7 +35,8 @@ function AddToCart(props) {
 }
 AddToCart.propTypes = {
 	product: PropTypes.any,
-	styles: PropTypes.any
+	styles: PropTypes.any,
+	loading: PropTypes.bool
 };
 
 export default AddToCart;
