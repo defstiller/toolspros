@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 import useAddGetRemoveData from "../../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
+import Modal from "../../../components/modal/Modal";
+import LoadingModal from "../../../components/modal/loadingModal/LoadingModal";
 
 import styles from "./addProduct.module.css";
 
 function AddProduct() {
 
-	const {loading, response, error, addData} = useAddGetRemoveData();
+	const {loading, response, error, addData, setError, setResponse} = useAddGetRemoveData();
 	const [input, setInput] = useState({
 		name: "",
 		description: "",
@@ -33,6 +35,7 @@ function AddProduct() {
 
 	return(
 		<div className={styles.addProductDiv}>
+			<Modal response={response} delay={2000} error={error} setResponse={setResponse} setError={setError}/>
 			{error && <p>error</p>}
 			{response && <p>{response}</p>}
 			{loading && <p>Loading...</p>}
