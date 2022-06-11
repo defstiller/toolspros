@@ -1,15 +1,13 @@
 import React, {useContext, useState, useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
-import { getAuth, signOut } from "firebase/auth";
 
 import LogoSvg from "../../assets/svgsReactReady/logoSvg/LogoSvg";
 import CartButtonSvg from "../../assets/svgsReactReady/cartButtonSvg/CartButtonSvg";
-import HeaderMobile from "./headerMobile/NavBarMobile";
 import AccountSvg from "../../assets/svgsReactReady/account/AccountSvg";
 import NavBar from "./navBar/NavBar";
 import DropDown from "./dropdown/DropDown";
 
-import {ScreenResizeContext, AuthContext} from "../../context/context";
+import {ScreenResizeContext} from "../../context/context";
 
 import styles from "./header.module.css";
 

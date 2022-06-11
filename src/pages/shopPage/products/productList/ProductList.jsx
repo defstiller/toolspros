@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
 import PropTypes from "prop-types";
-import { useCart } from "react-use-cart";
 import { useNavigate } from "react-router-dom";
 
 import ProductCard from "../../../../components/productCard/productCardSmall/ProductCard";

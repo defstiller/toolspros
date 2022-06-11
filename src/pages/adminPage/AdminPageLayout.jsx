@@ -4,7 +4,6 @@ import AdminProductList from "./adminProductList/AdminProductList";
 import AddProduct from "./addProduct/AddProduct";
 import GetUserMessages from "./getUserMessages/GetUserMessages";
 import HeaderLayout from "../../components/header/HeaderLayout";
-import AdminReviews from "./adminReviewList/AdminReviews";
 
 import styles from "./adminPageLayout.module.css";
 function AdminPageLayout() {
@@ -18,12 +17,11 @@ function AdminPageLayout() {
 			<button onClick={event => handleAdminPageLayout(event)} name="addProduct">Add Product</button>
 			<button onClick={event => handleAdminPageLayout(event)} name="productList">Product list</button>
 			<button onClick={event => handleAdminPageLayout(event)} name="userMessages">User messages</button>
-			<button onClick={event => handleAdminPageLayout(event)} name="reviews">Reviews</button>
+			<button onClick={event => handleAdminPageLayout(event)} name="clear">Clear</button>
 		</section>
 		{adminPage === "addProduct" && <AddProduct /> }
 		{adminPage === "productList" &&<AdminProductList /> }
 		{adminPage === "userMessages" && <GetUserMessages /> }
-		{adminPage === "reviews" && <AdminReviews /> }
 	</>
 	);
 }

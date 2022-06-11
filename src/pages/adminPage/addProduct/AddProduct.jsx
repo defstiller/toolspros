@@ -36,9 +36,7 @@ function AddProduct() {
 	return(
 		<div className={styles.addProductDiv}>
 			<Modal response={response} delay={2000} error={error} setResponse={setResponse} setError={setError}/>
-			{error && <p>error</p>}
-			{response && <p>{response}</p>}
-			{loading && <p>Loading...</p>}
+			<LoadingModal loading={loading} />
 			<form onSubmit={handleAddSubmit} className={styles.form}>
 				<label htmlFor="name">Name</label>
 				<input name="name" value={input.name} onChange={handleInputChange} required/> 

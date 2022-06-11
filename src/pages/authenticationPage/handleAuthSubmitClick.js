@@ -1,8 +1,5 @@
 import React from "react";
-import { 
-	createUserWithEmailAndPassword, 
-	signInWithEmailAndPassword
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 function handleAuthSubmitClick(
 	event, 
 	authInfo, 

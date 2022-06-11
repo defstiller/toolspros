@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import { updateProfile } from "firebase/auth";
 
 import {AuthContext} from "../../context/context";
 

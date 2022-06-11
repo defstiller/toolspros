@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 
 import classes from "./featuredProducts.module.css";
 import {ProductDataContext, ScreenResizeContext} from "../../../context/context";
-import debounce from "../../../logic/functions/debounceFunction";
 
 function FeaturedProducts({data}) {
 	const {receivedData, loading, error} = useContext(ProductDataContext);

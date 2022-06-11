@@ -1,7 +1,7 @@
-import React, { useRef, useContext} from "react";
+import React, { useContext } from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import { getAuth, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 
 import { AuthContext } from "../../../context/context";
 

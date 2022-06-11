@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect, useDeferredValue, useMemo} from "react";
+import React, {useState, useContext, useDeferredValue, useMemo} from "react";
 
 import classes from "./searchBar.module.css";
 import {ProductDataContext} from "../../../context/context";

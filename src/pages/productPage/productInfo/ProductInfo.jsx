@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import useAddGetRemoveData from "../../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
 import HeaderLayout from "../../../components/header/HeaderLayout";

@@ -8,7 +8,7 @@ import LoadingModal from "../../../../components/modal/loadingModal/LoadingModal
 import useAddGetRemoveData from "../../../../logic/firebaseLogic/firebaseDB/useAddGetRemoveData";
 import useHandleInputChange from "../../../../logic/functions/useHandleInputChange";
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 import styles from "./productReviews.module.css";
 function ProductReviews(props) {
