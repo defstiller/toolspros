@@ -25,6 +25,10 @@ function ProductList(props) {
 		}
 	}
 
+	/**
+	 * Get the first and last index of the current page, then slice the array to get the products for that
+	 * page.
+	 */
 	function productPagination() {
 		previousButton.current.disabled = true;
 		nextButton.current.disabled = true;
