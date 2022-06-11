@@ -7,6 +7,7 @@ import HeaderLayout from "../../../components/header/HeaderLayout";
 import ProductReviews from "./productReviews/ProductReviews";
 import AddToCart from "../../../components/addToCart/AddToCart";
 import ImageWithFallback from "../../../components/imageWithFallback/ImageWithFallback";
+import LoadingModal from "../../../components/modal/loadingModal/LoadingModal";
 
 import styles from "./productInfo.module.css";
 import StarRating from "../../../components/productCard/starRating/StarRating";
@@ -30,6 +31,7 @@ function ProductInfo() {
 	return (
 		<>
 			<HeaderLayout />
+			<LoadingModal loading={loading} />
 			{product && <>
 				<main className={styles.main}>
 					<figure>
