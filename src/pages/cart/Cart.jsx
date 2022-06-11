@@ -55,7 +55,7 @@ function Cart() {
 	}
 	function handleProductClick(product) { //navigate user on click
 		const path = product.id;
-		navigate(path);
+		navigate("/shop/"+path);
 	}
 	
 	if (isEmpty) return <>
