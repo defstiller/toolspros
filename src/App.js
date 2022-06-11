@@ -25,7 +25,7 @@ function App() {
 	const [isUser, setIsUser] = useState(false);
 	const [width, setWidth] = useState(window.innerWidth)
 	useEffect(() =>{
-		window.addEventListener("resize", debounce(() => setWidth(window.innerWidth) ,350, false), false);
+		window.addEventListener("resize", debounce(() => setWidth(window.innerWidth) ,250, false), false);
 
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
